@@ -34,12 +34,12 @@ http
     let url = req.url;
     res.writeHeader(200, { "content-Type": "text/html" });
     switch (url) {
-      case "/project.html":
+      case "/project":
         res.write(projectContent);
         res.end();
         break;
 
-      case "/registration.html":
+      case "/registration":
         res.write(registrationContent);
         res.end();
         break;
