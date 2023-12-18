@@ -12,7 +12,7 @@ const todoList = () => {
     // Write the date check condition here and return the array
     // of overdue items accordingly.
     return all.filter(
-      (todos) => todos.dueDate < new Date().toISOString().slice(0, 10)
+      (todos) => todos.dueDate < new Date().toISOString().slice(0, 10),
     );
   };
 
@@ -20,7 +20,7 @@ const todoList = () => {
     // Write the date check condition here and return the array
     // of todo items that are due today accordingly.
     return all.filter(
-      (todos) => new Date().toISOString().slice(0, 10) === todos.dueDate
+      (todos) => new Date().toISOString().slice(0, 10) === todos.dueDate,
     );
   };
 
@@ -28,7 +28,7 @@ const todoList = () => {
     // Write the date check condition here and return the array
     // of todo items that are due later accordingly.
     return all.filter(
-      (todos) => new Date().toISOString().slice(0, 10) < todos.dueDate
+      (todos) => new Date().toISOString().slice(0, 10) < todos.dueDate,
     );
   };
 
@@ -68,10 +68,10 @@ const formattedDate = (d) => {
 var dateToday = new Date();
 const today = formattedDate(dateToday);
 const yesterday = formattedDate(
-  new Date(new Date().setDate(dateToday.getDate() - 1))
+  new Date(new Date().setDate(dateToday.getDate() - 1)),
 );
 const tomorrow = formattedDate(
-  new Date(new Date().setDate(dateToday.getDate() + 1))
+  new Date(new Date().setDate(dateToday.getDate() + 1)),
 );
 
 todos.add({ title: "Submit assignment", dueDate: yesterday, completed: false });
@@ -99,3 +99,4 @@ let itemsDueLater = todos.dueLater();
 let formattedItemsDueLater = todos.toDisplayableList(itemsDueLater);
 console.log(formattedItemsDueLater);
 console.log("\n\n");
+module.exports = todoList;
