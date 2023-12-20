@@ -4,8 +4,8 @@ const Todo = require("./TodoModel.js");
 const createTodo = async () => {
   try {
     await connect();
-    const todo = await Todo.create({
-      title: "First Item",
+    const todo = await Todo.addTask({
+      title: "second Item",
       dueDate: new Date(),
       completed: false,
     });
@@ -20,7 +20,7 @@ const countItems = async () => {
     await connect();
     const totalCount = await Todo.count();
     console.log(`Found ${totalCount} items in the table!`);
-  } catch (erroe) {
+  } catch (error) {
     console.error(error);
   }
 };
@@ -31,7 +31,7 @@ const getAllTodos = async () => {
     const todoList = todos.map((todo) => todo.displayableString().join("\n"));
     console.log(todoList);
   } catch (error) {
-    console.log.error(error);
+    console.error(error);
   }
 };
 
@@ -57,10 +57,10 @@ const updateItem = async (id) => {
         where: {
           id: id,
         },
-      }
+      },
     );
-  } catch (erroe) {
-    console.erroe(error);
+  } catch (error) {
+    console.error(error);
   }
 };
 
@@ -73,17 +73,16 @@ const deleteItem = async (id) => {
     });
   } catch (error) {
     console.error(error);
-    ad;
   }
 };
 
 (async () => {
-  //   //await createTodo();
+  await createTodo();
   //   //await countItems();
   //   await getAllTodos();
   //   //await updateItem(2);
   //   await deletItema(2);
   //   await getAllTodos();
-  await getAllTodos();
-  await countItems();
+  //await getAllTodos();
+  //await countItems();
 })();
